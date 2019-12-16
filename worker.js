@@ -19,7 +19,7 @@ async function handleRequest(request) {
     if (!isNaN(gid)) {
       let new_headers = new Headers()
       new_headers.set('Referer','emuparadise.me')
-      request_url = request_url.replace('/emuparadise.me','/www.emuparadise.me').replace('http','https')
+      request_url = request_url.replace('/emuparadise.me','/www.emuparadise.me').replace('http:','https:')
       const response2 = await fetch(request_url + '&test=true',{headers:new_headers,redirect:"manual"})
       if (response2.status == 301){
         return Response.redirect(response2.headers.get('Location'),301)
